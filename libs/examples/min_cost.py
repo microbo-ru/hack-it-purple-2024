@@ -26,4 +26,11 @@ resources = [
 
 model = MinCost(resources, tasks)
 
-model.solve()
+solution = model.solve()
+
+for t in range(len(tasks)):
+    (worker, cost) = solution[t]
+    (task_name, *_) = tasks[t]
+    (worker_name, *_) = resources[worker]
+
+    print(f'Task "{task_name}" is performed by "{worker_name}", cost = {cost}')

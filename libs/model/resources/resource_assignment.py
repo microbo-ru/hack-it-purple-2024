@@ -56,11 +56,15 @@ class MinCost():
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
             print(f'Total cost = {solver.objective_value}\n')
 
+            solution = {}
             for t in range(self.num_tasks):
                 for w in range(self.num_workers):
                     if solver.boolean_value(task_workers[t, w]):
-                        print(
-                            f'Task {t} is performed by worker {w}, cost = {solver.Value(obj_task_costs[t])}'
-                        )
+                        # (worker_id, total_cost)
+                        solution[t] = (w, solver.Value(obj_task_costs[t]))
+
+            return solution
+
         else:
             print("No solution found.")
+            return None
