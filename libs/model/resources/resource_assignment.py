@@ -6,18 +6,18 @@ from ortools.sat.python import cp_model
 class MinCost():
     def __init__(self,
                  resources: list,
-                 tasks: list,
+                 fixed_tasks: list,
                  fixed_assignments: list = []):
 
         self.resources = resources
-        self.tasks = tasks
+        self.fixed_tasks = fixed_tasks
         self.fixed_assignments = fixed_assignments
 
         self.num_workers = len(resources)
-        self.num_tasks = len(tasks)
+        self.num_tasks = len(fixed_tasks)
 
         max_day = 0
-        for (*_, task_end) in tasks:
+        for (*_, task_end) in fixed_tasks:
             if task_end > max_day:
                 max_day = task_end
 
@@ -35,7 +35,7 @@ class MinCost():
 
         # Workers can do tasks based on their skills
         for t in range(self.num_tasks):
-            (*_, t_skill, t_start, t_end) = self.tasks[t]
+            (*_, t_skill, t_start, t_end) = self.fixed_tasks[t]
 
             for d in range(t_start, t_end + 1):  # +1 - if the day end is the same as day start
                 for w in range(self.num_workers):
@@ -48,13 +48,13 @@ class MinCost():
         # Constraints:
         # 0. Fixed assignments should be met
         for (t, w_preferred) in self.fixed_assignments:
-            (*_, t_start, t_end) = self.tasks[t]
+            (*_, t_start, t_end) = self.fixed_tasks[t]
             task_workdays = [task_workers[d, t, w_preferred] for d in range(t_start, t_end + 1)]
             model.AddBoolAnd(task_workdays)
 
         # 1. Task is assigned to exactly one worker
         for t in range(self.num_tasks):
-            (*_, t_start, t_end) = self.tasks[t]
+            (*_, t_start, t_end) = self.fixed_tasks[t]
 
             # 1.1. For every day only 1 worker is assigned
             for d in range(t_start, t_end + 1):
@@ -78,7 +78,7 @@ class MinCost():
         # Objective function
         obj_task_costs = {}
         for t in range(self.num_tasks):
-            (_, task_effort_hrs, _, t_start, t_end) = self.tasks[t]
+            (_, task_effort_hrs, _, t_start, t_end) = self.fixed_tasks[t]
 
             assigned_workers_cost = []
             for w in range(self.num_workers):
@@ -103,7 +103,7 @@ class MinCost():
             }
 
             for t in range(self.num_tasks):
-                (*_, t_start, t_end) = self.tasks[t]
+                (*_, t_start, t_end) = self.fixed_tasks[t]
                 for w in range(self.num_workers):
                     if solver.boolean_value(task_workers[t_start, t, w]):
                         # (worker_id, total_cost)

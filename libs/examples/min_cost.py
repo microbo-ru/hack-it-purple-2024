@@ -4,7 +4,7 @@ from libs.model.resources.resource_assignment import MinCost
 NUM_DAYS = 14
 
 # (name, effort_hrs, skill_required, start_day, end_day)
-tasks = [
+fixed_tasks = [
     ('Requirements Analysis', 6, 'analysis', 0, 0),
     ('API design', 8, 'dev', 0, 0),
     ('API Programming', 24, 'dev', 1, 4),
@@ -23,7 +23,7 @@ resources = [
     ('QA2', 40.0, ['qa']),
 ]
 
-model = MinCost(resources, tasks)
+model = MinCost(resources, fixed_tasks)
 
 solution = model.solve()
 # solution = {
@@ -35,8 +35,8 @@ solution = model.solve()
 printer = SolutionPrinter(num_days=NUM_DAYS)
 
 print('\nTask assignments:\n')
-printer.print_task_assignments(tasks, resources, solution['task_assignments'])
+printer.print_task_assignments(fixed_tasks, resources, solution['task_assignments'])
 
 print('\nWork assignments:\n')
-printer.print_workers_tasks(tasks, resources, solution['workers_assignments'])
+printer.print_workers_tasks(fixed_tasks, resources, solution['workers_assignments'])
 
