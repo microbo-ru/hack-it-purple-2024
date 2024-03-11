@@ -31,7 +31,7 @@ class MinCost():
         task_workers = defaultdict(lambda: __FALSE)
         # use default dict with None assinment to speed up iterations over tasks
 
-        # Potentially every worker can do any task:
+        # Workers can do tasks based on their skills
         for t in range(self.num_tasks):
             (*_, t_skill, t_start, t_end) = self.tasks[t]
 
@@ -40,7 +40,7 @@ class MinCost():
                     (*_, w_skill) = self.resources[w]
 
                     # by default = False
-                    if t_skill == w_skill:
+                    if t_skill in w_skill:
                         task_workers[d, t, w] = model.NewBoolVar(f'task{t}_worker{w}')
 
         # Constraints:

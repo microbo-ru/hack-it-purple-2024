@@ -1,14 +1,6 @@
 from libs.examples.solution_printer import SolutionPrinter
 from libs.model.resources.resource_assignment import MinCost
 
-
-# just for comments
-skills = [
-    'Analysis',
-    'Development',
-    'Testing'
-]
-
 NUM_DAYS = 14
 
 # (name, effort_hrs, skill_required, start_day, end_day)
@@ -20,14 +12,14 @@ tasks = [
     ('API Testing', 5, 'qa', 5, 5)
 ]
 
-# (name, cost_hr, skill)
+# (name, cost_hr, skills)
 resources = [
-    ('Analyst 1', 50.0, 'analysis'),
-    ('Analyst 2', 55.0, 'analysis'),
-    ('Dev', 60.0, 'dev'),
-    ('SA', 80.0, 'dev'),
-    ('QA1', 40.0, 'qa'),
-    ('QA2', 40.0, 'qa'),
+    ('Analyst 1', 50.0, ['analysis']),
+    ('Analyst 2', 55.0, ['analysis']),
+    ('Dev', 60.0, ['dev']),
+    ('SA', 80.0, ['analysis', 'dev']),
+    ('QA1', 40.0, ['qa']),
+    ('QA2', 40.0, ['qa']),
 ]
 
 model = MinCost(resources, tasks)
@@ -38,7 +30,6 @@ solution = model.solve()
 #   'workers_assignments': {}
 # }
 
-# print solutions
 
 printer = SolutionPrinter(num_days=NUM_DAYS)
 
