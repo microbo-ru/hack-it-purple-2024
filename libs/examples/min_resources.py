@@ -1,5 +1,5 @@
 from libs.examples.solution_printer import SolutionPrinter
-from libs.model.task_scheduling import MinCostModel
+from libs.model.task_scheduling import MinResourcesModel
 
 NUM_DAYS = 14
 
@@ -23,14 +23,7 @@ resources = [
     ('QA2', 40.0, ['qa']),
 ]
 
-fixed_assignments = [
-    # (task_id, resource_id)
-
-    # API should be designed by SA
-    (1, 3)
-]
-
-model = MinCostModel(resources, tasks, fixed_assignments)
+model = MinResourcesModel(resources, tasks)
 
 solution = model.solve()
 # solution = {

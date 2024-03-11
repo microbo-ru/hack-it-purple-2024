@@ -1,6 +1,5 @@
 from libs.examples.solution_printer import SolutionPrinter
-from libs.model.duration.min_duration import MinDuration
-from libs.model.resources.resource_assignment import MinCost
+from libs.model.task_scheduling import MinDurationModel
 
 NUM_DAYS = 14
 
@@ -31,7 +30,7 @@ fixed_assignments = [
     (1, 3)
 ]
 
-model = MinDuration(resources, tasks, fixed_assignments)
+model = MinDurationModel(resources, tasks, fixed_assignments)
 
 solution = model.solve()
 # solution = {

@@ -1,16 +1,16 @@
 from libs.examples.solution_printer import SolutionPrinter
-from libs.model.resources.resource_assignment import MinCost
+from libs.model.task_scheduling import MinCostModel
 
 NUM_DAYS = 14
 
-# (name, effort_hrs, skill_required, start_day, end_day)
-fixed_tasks = [
-    ('Requirements Analysis', 6, 'analysis', 0, 0),
-    ('API design', 8, 'dev', 0, 0),
-    ('API Programming', 24, 'dev', 1, 4),
-    ('DB design', 8, 'dev', 1, 1),
-    ('unit-tests', 8, 'dev', 5, 5),
-    ('API Testing', 5, 'qa', 5, 5)
+# (name, effort_hrs, skill_required, depends_on)
+tasks = [
+    ('Requirements Analysis', 6, 'analysis', []),
+    ('API design', 8, 'dev', []),
+    ('API Programming', 24, 'dev', []),
+    ('DB design', 8, 'dev', []),
+    ('unit-tests', 8, 'dev', []),
+    ('API Testing', 5, 'qa', [])
 ]
 
 # (name, cost_hr, skills)
@@ -23,7 +23,7 @@ resources = [
     ('QA2', 40.0, ['qa']),
 ]
 
-model = MinCost(resources, fixed_tasks)
+model = MinCostModel(resources, tasks)
 
 solution = model.solve()
 # solution = {
@@ -35,8 +35,8 @@ solution = model.solve()
 printer = SolutionPrinter(num_days=NUM_DAYS)
 
 print('\nTask assignments:\n')
-printer.print_task_assignments(fixed_tasks, resources, solution['task_assignments'])
+printer.print_task_assignments(tasks, resources, solution['task_assignments'])
 
 print('\nWork assignments:\n')
-printer.print_workers_tasks(fixed_tasks, resources, solution['workers_assignments'])
+printer.print_workers_tasks(tasks, resources, solution['workers_assignments'])
 
