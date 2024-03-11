@@ -107,7 +107,7 @@ class MinCost():
                 for w in range(self.num_workers):
                     if solver.boolean_value(task_workers[t_start, t, w]):
                         # (worker_id, total_cost)
-                        solution['task_assignments'][t] = (w, solver.Value(obj_task_costs[t]))
+                        solution['task_assignments'][t] = (t_start, t_end, w, solver.Value(obj_task_costs[t]))
 
             for w in range(self.num_workers):
                 worker_solution = []
