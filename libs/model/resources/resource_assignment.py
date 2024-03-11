@@ -6,10 +6,12 @@ from ortools.sat.python import cp_model
 class MinCost():
     def __init__(self,
                  resources: list,
-                 tasks: list):
+                 tasks: list,
+                 fixed_assignments: list = []):
 
         self.resources = resources
         self.tasks = tasks
+        self.fixed_assignments = fixed_assignments
 
         self.num_workers = len(resources)
         self.num_tasks = len(tasks)
@@ -29,7 +31,7 @@ class MinCost():
         # task_workers [d, t, w] -> days x tasks x workers == on what day D what worker W is assigned on task T
         # task_workers = {}
         task_workers = defaultdict(lambda: __FALSE)
-        # use default dict with None assinment to speed up iterations over tasks
+        # use default dict with None assignment to speed up iterations over tasks
 
         # Workers can do tasks based on their skills
         for t in range(self.num_tasks):
@@ -44,6 +46,12 @@ class MinCost():
                         task_workers[d, t, w] = model.NewBoolVar(f'task{t}_worker{w}')
 
         # Constraints:
+        # 0. Fixed assignments should be met
+        for (t, w_preferred) in self.fixed_assignments:
+            (*_, t_start, t_end) = self.tasks[t]
+            task_workdays = [task_workers[d, t, w_preferred] for d in range(t_start, t_end + 1)]
+            model.AddBoolAnd(task_workdays)
+
         # 1. Task is assigned to exactly one worker
         for t in range(self.num_tasks):
             (*_, t_start, t_end) = self.tasks[t]

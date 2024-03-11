@@ -23,7 +23,14 @@ resources = [
     ('QA2', 40.0, ['qa']),
 ]
 
-model = MinCost(resources, tasks)
+fixed_assignments = [
+    # (task_id, resource_id)
+
+    # API should be designed by SA
+    (1, 3)
+]
+
+model = MinCost(resources, tasks, fixed_assignments)
 
 solution = model.solve()
 # solution = {
