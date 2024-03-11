@@ -8,8 +8,8 @@ class SolutionPrinter:
         __busy = u' ■ '
 
         for t in range(len(tasks)):
-            (w, cost) = solution_task_assignments[t]
-            (task_name, *_, start_day, end_day) = tasks[t]
+            (start, end, w, cost) = solution_task_assignments[t]
+            (task_name, *_) = tasks[t]
             (worker_name, *_) = resources[w]
 
             if compact:
@@ -17,7 +17,7 @@ class SolutionPrinter:
 
             if not compact:
                 day_icons = [__free for _ in range(self.num_days)]  # empty row
-                for d in range(start_day, end_day + 1):
+                for d in range(start, end):
                     day_icons[d] = __busy
 
                 day_print = ''.join(day_icons)
