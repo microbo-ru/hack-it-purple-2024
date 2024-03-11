@@ -8,12 +8,12 @@ class SolutionPrinter:
         __busy = u' ■ '
 
         for t in range(len(tasks)):
-            (start, end, w, cost) = solution_task_assignments[t]
+            (start, end, w) = solution_task_assignments[t]
             (task_name, *_) = tasks[t]
             (worker_name, *_) = resources[w]
 
             if compact:
-                print(f'Task "{task_name}" is performed by "{worker_name}", cost = {cost}')
+                print(f'Task "{task_name}" is performed by "{worker_name}"')
 
             if not compact:
                 day_icons = [__free for _ in range(self.num_days)]  # empty row
@@ -23,7 +23,7 @@ class SolutionPrinter:
                 day_print = ''.join(day_icons)
                 task_print = '{:<25}'.format(task_name)
 
-                print(f'{task_print} : {day_print} : {worker_name} ({cost})')
+                print(f'{task_print} : {day_print} : {worker_name}')
 
     def print_workers_tasks(self, tasks, resources, solution_workers_assignments, compact=False):
         __free = u' □ '

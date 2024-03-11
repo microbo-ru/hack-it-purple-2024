@@ -75,7 +75,6 @@ class MinDuration:
                 model.Add(overlap_d + before_d + after_d == 1)
                 day_overlaps[t, d] = overlap_d
 
-
         # 2. Add dependencies on intervals
         for t in range(self.num_tasks):
             (*_, depends_on_tasks) = self.tasks[t]
@@ -137,32 +136,44 @@ class MinDuration:
         for (t, w_preferred) in self.fixed_assignments:
             model.Add(task_workers[t, w_preferred] == 1)
 
+        # 6. Calculate costs on the fly
 
-        # Objective function
+
+
+        # Objective - Min cost
         # obj_task_costs = {}
         # for t in range(self.num_tasks):
-        #     (_, task_effort_hrs, _, t_start, t_end) = self.tasks[t]
+        #     (_, effort_hrs, _, _) = self.tasks[t]
         #
         #     assigned_workers_cost = []
         #     for w in range(self.num_workers):
-        #         (_, worker_cost_hr, _) = self.resources[w]
-        #         # to simplify:
-        #         # just consider, if W works on t_start -> consider he is working the whole time as well
-        #         assigned_workers_cost.append(task_workers[t_start, t, w] * worker_cost_hr * task_effort_hrs)
+        #         (_, cost_hr, _) = self.resources[w]
+        #         assigned_workers_cost.append(task_workers[t, w] * effort_hrs * cost_hr)
         #
         #     obj_task_costs[t] = sum(assigned_workers_cost)
         #
-        # model.minimize(sum([obj_task_costs[t] for t in range(self.num_tasks)]))
+        # model.minimize(sum(obj_task_costs[t] for t in range(self.num_tasks)))
 
-        model.minimize(root_duration)
-        model.minimize(root_end)
+        # Objective - Min resources
+        obj_task_workers = {}
+        for w in range(self.num_workers):
+            obj_task_workers[w] = model.NewBoolVar(f'worker{w}_is_used')
+
+            tasks = [task_workers[t, w] for t in range(self.num_tasks)]
+            model.Add(sum(tasks) > 0).OnlyEnforceIf(obj_task_workers[w])
+            model.Add(sum(tasks) == 0).OnlyEnforceIf(obj_task_workers[w].Not())
+
+        model.minimize(sum(obj_task_workers[w] for w in range(self.num_workers)))
+
+        # Objective - Min Duration
+        # model.minimize(root_end)
 
         solver = cp_model.CpSolver()
         solver.parameters.log_search_progress = True
         status = solver.Solve(model)
 
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-            print(f'Total cost = {solver.objective_value}\n')
+            print(f'Total objective func = {solver.objective_value}\n')
 
             solution = {
                 'task_assignments': {},
@@ -174,7 +185,6 @@ class MinDuration:
                 end = solver.Value(task_intervals[t].EndExpr())
 
                 assigned_worker = -1
-                assigned_cost = -1
 
                 for w in range(self.num_workers):
                     # first match is the answer
@@ -182,7 +192,7 @@ class MinDuration:
                         assigned_worker = w
                         break
 
-                solution['task_assignments'][t] = (start, end, assigned_worker, assigned_cost)
+                solution['task_assignments'][t] = (start, end, assigned_worker)
 
 
             for w in range(self.num_workers):
