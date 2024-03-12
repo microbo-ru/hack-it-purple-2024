@@ -66,9 +66,9 @@ def process_json(args):
 
     fixed_assignments = []
 
-    # model = MinDurationModel(resources, algo_tasks, fixed_assignments)
+    model = MinDurationModel(resources, algo_tasks, fixed_assignments)
     # model = MinCostModel(resources, algo_tasks, fixed_assignments)
-    model = MinResourcesModel(resources, algo_tasks, fixed_assignments)
+    # model = MinResourcesModel(resources, algo_tasks, fixed_assignments)
     solution = model.solve()
 
     print(solution)
@@ -84,13 +84,9 @@ def process_json(args):
     with open(args.output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
 
-
-    # with open(args.output_file[:-4] + '.xml', 'w', encoding='utf-8') as f:
-    #         json_to_xml = xmltodict.unparse(data)
-    #         f.write(json_to_xml)
-            # print(xml)
-            # json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
-        
+    with open(args.output_file[:-5] + '.xml', 'w', encoding='utf-8') as f:
+        xml_content = xmltodict.unparse(json.load(open(args.output_file)), pretty=True)
+        f.write(xml_content)
 
 def convert_xml_to_json(args):
     with open(args.input_file) as fd:
