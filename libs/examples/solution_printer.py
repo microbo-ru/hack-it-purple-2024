@@ -35,7 +35,11 @@ class SolutionPrinter:
             u' ▲ ',
             u' ▼ ',
             u' © ',
-            u' * '
+            u' * ',
+            u' 1 ',
+            u' 2 ',
+            u' 3 ',
+            u' 4 '
         ]
 
         if compact:

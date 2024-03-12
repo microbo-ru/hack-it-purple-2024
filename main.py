@@ -3,56 +3,117 @@ from pprint import pprint
 from types import SimpleNamespace
 import argparse
 import re
+import xmltodict, json
+from libs.examples.solution_printer import SolutionPrinter
+from libs.model.task_scheduling import MinDurationModel, MinCostModel, MinResourcesModel
 
 def get_obj_dict(obj):
     return obj.__dict__
 
 def get_price(name):
     t = re.search('\((.*?)руб', name)
-    return t.group(1)
+    return int(t.group(1))
 
-def run(args):
+def find_uid_index(uid, tasks):
+    i=0
+    for t in tasks:
+        (t_uid, *_) = t
+        if t_uid == uid:
+            return i
+        i+=1
+    
+    return None
+
+def get_effort(effort_str):
+    return int(effort_str[2: effort_str.index('H')])
+
+def get_role(resource):
+    return resource.Name[:resource.Name.index(' ')]
+
+def process_json(args):
     data = json.load(open(args.input_file), object_hook=lambda d: SimpleNamespace(**d))
-
-    deps = {}
-    for t in data.dependencies.rows:
-        if t.to not in deps:
-            deps[t.to] = []
-        
-        deps[t.to].append(t.fromEvent)
-    # pprint(deps)
+    # data = json.load(open(args.input_file))
 
     tasks = []
-    for row in data.tasks.rows:
-        for child in row.children:
-            for t in child.children:
-                if t.id in deps:
-                    tasks.append((t.id, t.effort, t.name, deps[t.id]))
-                else:
-                    tasks.append((t.id, t.effort, t.name, []))
-    pprint(tasks)
+    for t in data.Project.Tasks.Task:
+        if t.Summary == "1":
+            continue
+        if not hasattr(t, 'PredecessorLink'):
+            tasks.append((t.UID, t.Name, t.Work, []))
+        else:
+            tasks.append((t.UID, t.Name, t.Work, [t.PredecessorLink.PredecessorUID]))
+    # pprint(tasks)
+
+    algo_tasks = []
+    for t in tasks:
+        (uid, name, effort_str, deps) = t
+        deps_idx = [find_uid_index(deps[0] , tasks)] if len(deps)> 0 else []
+        algo_tasks.append((uid, get_effort(effort_str), name, deps_idx))
+    pprint(algo_tasks)
 
     skill_mapping = {'Тестировщик': 'Тестирование', 
                      'Разработчик': 'Разработка',
                      'Аналитик': 'Аналитика'}
-    # pprint(skill_mapping)
+    # # pprint(skill_mapping)
 
     resources = []
-    for t in data.resources.rows:
-        resources.append((t.id, get_price(t.name), [skill_mapping[t.projectRole]]))
+    for r in data.Project.Resources.Resource:
+        if get_role(r) not in skill_mapping:
+            continue
+        resources.append((r.UID, get_price(r.Name), [skill_mapping[get_role(r)]]))
 
     pprint(resources)
+
+    fixed_assignments = []
+
+    # model = MinDurationModel(resources, algo_tasks, fixed_assignments)
+    # model = MinCostModel(resources, algo_tasks, fixed_assignments)
+    model = MinResourcesModel(resources, algo_tasks, fixed_assignments)
+    solution = model.solve()
+
+    print(solution)
+
+    NUM_DAYS = 90
+    printer = SolutionPrinter(num_days=NUM_DAYS)
+    print('\nTask assignments:')
+    printer.print_task_assignments(tasks, resources, solution['task_assignments'])
+    print('\n=============================\n'
+        'Resources assignments:')
+    printer.print_workers_tasks(tasks, resources, solution['workers_assignments'])
 
     with open(args.output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
 
-# ./main.py -i "./inputs/исх.json" -o out.json
+
+    # with open(args.output_file[:-4] + '.xml', 'w', encoding='utf-8') as f:
+    #         json_to_xml = xmltodict.unparse(data)
+    #         f.write(json_to_xml)
+            # print(xml)
+            # json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
+        
+
+def convert_xml_to_json(args):
+    with open(args.input_file) as fd:
+        doc = xmltodict.parse(fd.read())
+
+    with open(args.output_file, 'w', encoding='utf-8') as f:
+        json.dump(doc, f, ensure_ascii=False, indent=4)
+
+# python main.py -c -i "./inputs/new/исходные данные.xml" -o "./inputs/new/исходные данные.json"
+# python main.py -i "./inputs/new/исходные данные.json" -o out.json
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Sber Tech Scheduler')
     parser.add_argument('-i', '--input-file', type=str,
                         help='input file', required=True)
     parser.add_argument('-o', '--output-file', type=str,
                         help='output file', required=True)
+    parser.add_argument("-c", '--convert-xml', required=False)
 
     args = parser.parse_args()
-    run(args)
+    
+    if args.convert_xml is not None:
+        pprint("convert xml")
+        convert_xml_to_json(args)
+    else:
+        pprint("process json")
+        process_json(args)
