@@ -1,14 +1,14 @@
-import json
 from pprint import pprint
 from types import SimpleNamespace
 import argparse
 import re
 import xmltodict, json
+from datetime import datetime
 from libs.examples.solution_printer import SolutionPrinter
 from libs.examples.solution_builder import SolutionBuilder
-# from libs.model.task_scheduling import MinDurationModel, MinCostModel, MinResourcesModel
 from libs.model.task_scheduling_multiopt import TaskSchedulingMultiOpt
 from libs.model.solver_params import SolverParams
+
 
 INPUT_JSON = './tmp/input.json'
 OUTPUT_JSON = './tmp/out.json'
@@ -79,13 +79,6 @@ def process_json(args):
     s_params = SolverParams.default()
     s_params.max_iteration_search_time = args.max_time
     model = TaskSchedulingMultiOpt(resources, algo_tasks, opt_mode=args.mode_list, solver_params=s_params)
-    # model = TaskSchedulingMultiOpt(resources, algo_tasks, opt_mode=['duration'], solver_params=s_params)
-    # model = TaskSchedulingMultiOpt(resources, algo_tasks, opt_mode=['cost'])
-    # model = TaskSchedulingMultiOpt(resources, algo_tasks, opt_mode=['resources'])
-
-    # model = MinDurationModel(resources, algo_tasks, fixed_assignments)
-    # model = MinCostModel(resources, algo_tasks, fixed_assignments)
-    # model = MinResourcesModel(resources, algo_tasks, fixed_assignments)
     solution = model.solve()
 
     printer = SolutionPrinter()
@@ -97,6 +90,7 @@ def process_json(args):
 
     builder = SolutionBuilder()
     builder.reassign(data, tasks, resources, solution['task_assignments'])
+    builder.update_parents_dates(data)
 
     with open(OUTPUT_JSON, 'w', encoding='utf-8') as f:
         json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)

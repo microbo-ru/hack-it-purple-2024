@@ -105,7 +105,7 @@ class TaskSchedulingMultiOpt(MinCostModel, MinResourcesModel, MinDurationModel):
 
         # optimizations to use:
         for opt in self.opt_mode:
-            print(opt)
+            # print(opt)
             self.current_solver = self.get_cls(opt)
             # call parent class optimization
             solution = self.current_solver.solve(self)
