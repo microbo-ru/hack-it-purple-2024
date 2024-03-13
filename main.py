@@ -4,7 +4,9 @@ from types import SimpleNamespace
 import argparse
 import re
 import xmltodict, json
+from datetime import datetime
 from libs.examples.solution_printer import SolutionPrinter
+from libs.examples.solution_builder import SolutionBuilder
 from libs.model.task_scheduling import MinDurationModel, MinCostModel, MinResourcesModel
 
 def get_obj_dict(obj):
@@ -79,6 +81,11 @@ def process_json(args):
     print('\n=============================\n'
         'Resources assignments:')
     printer.print_workers_tasks(tasks, resources, solution['workers_assignments'])
+
+
+    builder = SolutionBuilder()
+    builder.reassign(data, tasks, resources, solution['task_assignments'])
+   
 
     with open(args.output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
