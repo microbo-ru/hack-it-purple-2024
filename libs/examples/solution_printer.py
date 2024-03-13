@@ -31,7 +31,7 @@ class SolutionPrinter:
                     day_icons[d] = __busy
 
                 day_print = ''.join(day_icons)
-                task_print = '{:<5}'.format(task_name)
+                task_print = '{:<25}'.format(task_name)
 
                 print(f'{task_print} : {day_print} : {worker_name}')
 
@@ -91,7 +91,7 @@ class SolutionPrinter:
                     day_icons[d] = get_icon(t)
 
                 day_print = ''.join(day_icons)
-                worker_print = '{:<5}'.format(worker_name)
+                worker_print = '{:<25}'.format(worker_name)
 
                 print(f'{worker_print} : {day_print}')
 

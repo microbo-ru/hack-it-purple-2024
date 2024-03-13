@@ -174,7 +174,10 @@ class TaskSchedulingBase(ABC):
             'objective_value': solver.objective_value,
             '__hints': {},
             'task_assignments': {},
-            'workers_assignments': {}
+            'workers_assignments': {},
+            'tot_days': 0,
+            'tot_workers': 0,
+            'tot_cost': 0
         }
 
         for t in range(self.num_tasks):
@@ -201,6 +204,25 @@ class TaskSchedulingBase(ABC):
             solution['workers_assignments'][w] = worker_solution
 
         solution['__hints'] = self.get_hints(solver)
+
+        tot_days = 0
+        tot_workers = {}
+        tot_cost = 0
+        for t in solution['task_assignments']:
+            (start, end, assigned_worker) = solution['task_assignments'][t]
+
+            if end > tot_days:
+                tot_days = end
+
+            tot_workers[assigned_worker] = True
+
+            (_, effort_hrs, _, _) = self.tasks[t]
+            (_, cost_hr, _) = self.resources[assigned_worker]
+            tot_cost += int(effort_hrs) * int(cost_hr)
+
+        solution['duration'] = tot_days
+        solution['cost'] = tot_cost
+        solution['resources'] = len(tot_workers)
 
         return solution
 
