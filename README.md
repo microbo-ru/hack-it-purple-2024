@@ -2,6 +2,17 @@
 It Purple Hack
 
 
+## Features:
+ - [X] Support MS Project .xml file format
+ - [X] Tasks and task groups
+ - [X] 3 kinds of schedule optimizations:
+   - by min duration
+   - by min cost
+   - by min resources
+ - [X] MultiOptimization - sequential optimization by different combinations (e.g. cost, then duration) (EXTRA FEATURE)
+ - [X] Multi skills per resources, e.g. when SA can work on analysis & development (EXTRA FEATURE)
+ - [X] Fixed assignments, e.g. Only specific worker should perform a specific task (EXTRA FEATURE)
+ - [X] Weighted optimization -> specify weights on cost, duration, resources (EXTRA FEATURE)
 ## How to run
 
 ### Create env using requirements.txt & set workspace
