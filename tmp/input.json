@@ -1,0 +1,1550 @@
+{
+    "Project": {
+        "@xmlns": "http://schemas.microsoft.com/project",
+        "SaveVersion": "14",
+        "Title": "Хакатон 2024",
+        "ScheduleFromStart": "1",
+        "StartDate": "2024-02-05T09:00:00",
+        "FinishDate": "2024-05-27T18:00:00",
+        "FYStartDate": "1",
+        "CriticalSlackLimit": "0",
+        "CurrencyDigits": "2",
+        "CurrencySymbol": "$",
+        "CurrencySymbolPosition": "0",
+        "CalendarUID": "1",
+        "DefaultStartTime": "08:00:00",
+        "MinutesPerDay": "480",
+        "MinutesPerWeek": "2400",
+        "DaysPerMonth": "20",
+        "DefaultTaskType": "0",
+        "DefaultFixedCostAccrual": "2",
+        "DefaultStandardRate": "10",
+        "DefaultOvertimeRate": "15",
+        "DurationFormat": "7",
+        "WorkFormat": "2",
+        "EditableActualCosts": "0",
+        "HonorConstraints": "0",
+        "EarnedValueMethod": "0",
+        "InsertedProjectsLikeSummary": "0",
+        "MultipleCriticalPaths": "0",
+        "NewTasksEffortDriven": "0",
+        "NewTasksEstimated": "1",
+        "SplitsInProgressTasks": "0",
+        "SpreadActualCost": "0",
+        "SpreadPercentComplete": "0",
+        "TaskUpdatesResource": "1",
+        "FiscalYearStart": "0",
+        "WeekStartDay": "1",
+        "MoveCompletedEndsBack": "0",
+        "MoveRemainingStartsBack": "0",
+        "MoveRemainingStartsForward": "0",
+        "MoveCompletedEndsForward": "0",
+        "BaselineForEarnedValue": "0",
+        "AutoAddNewResourcesAndTasks": "1",
+        "CurrentDate": "2024-03-11T22:50:50",
+        "MicrosoftProjectServerURL": "1",
+        "Autolink": "1",
+        "NewTaskStartDate": "0",
+        "DefaultTaskEVMethod": "0",
+        "ProjectExternallyEdited": "0",
+        "ActualsInSync": "0",
+        "RemoveFileProperties": "0",
+        "AdminProject": "0",
+        "NewTasksAreManual": "1",
+        "ExtendedAttributes": {
+            "ExtendedAttribute": [
+                {
+                    "FieldID": "188744004",
+                    "FieldName": "Text18"
+                },
+                {
+                    "FieldID": "188744005",
+                    "FieldName": "Text19"
+                },
+                {
+                    "FieldID": "188744006",
+                    "FieldName": "Text20"
+                },
+                {
+                    "FieldID": "205521069",
+                    "FieldName": "Date1"
+                },
+                {
+                    "FieldID": "205521070",
+                    "FieldName": "Date2"
+                },
+                {
+                    "FieldID": "205521130",
+                    "FieldName": "Text20"
+                },
+                {
+                    "FieldID": "205521131",
+                    "FieldName": "Text21"
+                },
+                {
+                    "FieldID": "255852770",
+                    "FieldName": "Text19"
+                }
+            ]
+        },
+        "Calendars": {
+            "Calendar": {
+                "UID": "1",
+                "Name": "General",
+                "IsBaseCalendar": "1",
+                "BaseCalendarUID": "-1",
+                "WeekDays": {
+                    "WeekDay": [
+                        {
+                            "DayType": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "DayType": "2",
+                            "DayWorking": "1",
+                            "WorkingTimes": {
+                                "WorkingTime": [
+                                    {
+                                        "FromTime": "09:00:00",
+                                        "ToTime": "13:00:00"
+                                    },
+                                    {
+                                        "FromTime": "14:00:00",
+                                        "ToTime": "18:00:00"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "DayType": "3",
+                            "DayWorking": "1",
+                            "WorkingTimes": {
+                                "WorkingTime": [
+                                    {
+                                        "FromTime": "09:00:00",
+                                        "ToTime": "13:00:00"
+                                    },
+                                    {
+                                        "FromTime": "14:00:00",
+                                        "ToTime": "18:00:00"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "DayType": "4",
+                            "DayWorking": "1",
+                            "WorkingTimes": {
+                                "WorkingTime": [
+                                    {
+                                        "FromTime": "09:00:00",
+                                        "ToTime": "13:00:00"
+                                    },
+                                    {
+                                        "FromTime": "14:00:00",
+                                        "ToTime": "18:00:00"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "DayType": "5",
+                            "DayWorking": "1",
+                            "WorkingTimes": {
+                                "WorkingTime": [
+                                    {
+                                        "FromTime": "09:00:00",
+                                        "ToTime": "13:00:00"
+                                    },
+                                    {
+                                        "FromTime": "14:00:00",
+                                        "ToTime": "18:00:00"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "DayType": "6",
+                            "DayWorking": "1",
+                            "WorkingTimes": {
+                                "WorkingTime": [
+                                    {
+                                        "FromTime": "09:00:00",
+                                        "ToTime": "13:00:00"
+                                    },
+                                    {
+                                        "FromTime": "14:00:00",
+                                        "ToTime": "18:00:00"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "DayType": "7",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-02-23T00:00:00",
+                                "ToDate": "2024-02-24T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-03-08T00:00:00",
+                                "ToDate": "2024-03-09T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-27T00:00:00",
+                                "ToDate": "2024-04-27T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-29T00:00:00",
+                                "ToDate": "2024-04-30T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-30T00:00:00",
+                                "ToDate": "2024-05-01T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-05-01T00:00:00",
+                                "ToDate": "2024-05-02T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-05-09T00:00:00",
+                                "ToDate": "2024-05-10T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-05-10T00:00:00",
+                                "ToDate": "2024-05-11T23:59:59"
+                            }
+                        },
+                        {
+                            "DayType": "0",
+                            "DayWorking": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-06-12T00:00:00",
+                                "ToDate": "2024-06-13T23:59:59"
+                            }
+                        }
+                    ]
+                },
+                "Exceptions": {
+                    "Exception": [
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-02-23T00:00:00",
+                                "ToDate": "2024-02-24T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-03-08T00:00:00",
+                                "ToDate": "2024-03-09T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-27T00:00:00",
+                                "ToDate": "2024-04-27T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-27T00:00:00",
+                                "ToDate": "2024-04-27T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-27T00:00:00",
+                                "ToDate": "2024-04-28T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-27T00:00:00",
+                                "ToDate": "2024-04-27T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-27T00:00:00",
+                                "ToDate": "2024-04-27T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-29T00:00:00",
+                                "ToDate": "2024-04-30T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-04-30T00:00:00",
+                                "ToDate": "2024-05-01T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-05-01T00:00:00",
+                                "ToDate": "2024-05-02T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-05-09T00:00:00",
+                                "ToDate": "2024-05-10T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-05-10T00:00:00",
+                                "ToDate": "2024-05-11T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        },
+                        {
+                            "EnteredByOccurrences": "0",
+                            "TimePeriod": {
+                                "FromDate": "2024-06-12T00:00:00",
+                                "ToDate": "2024-06-13T23:59:59"
+                            },
+                            "Occurrences": "1",
+                            "Type": "1",
+                            "DayWorking": "0"
+                        }
+                    ]
+                }
+            }
+        },
+        "Tasks": {
+            "Task": [
+                {
+                    "UID": "0",
+                    "GUID": "b704928d-d0c0-483a-83ec-cab50706973b",
+                    "ID": "0",
+                    "Name": "Хакатон 2024",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "0",
+                    "OutlineNumber": "1",
+                    "OutlineLevel": "1",
+                    "Priority": "500",
+                    "Start": "2024-02-05T09:00:00",
+                    "Finish": "2024-05-27T18:00:00",
+                    "Duration": "PT600H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT960H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "1",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT600H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":0.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"b704928d-d0c0-483a-83ec-cab50706973b\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "1",
+                    "GUID": "25f891a3-b244-487d-9880-3ccea45a96ff",
+                    "ID": "1",
+                    "Name": "Проект 1",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "1",
+                    "OutlineNumber": "1.1",
+                    "OutlineLevel": "2",
+                    "Priority": "500",
+                    "Start": "2024-02-05T09:00:00",
+                    "Finish": "2024-03-04T18:00:00",
+                    "Duration": "PT160H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT160H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "1",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT160H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":0.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"25f891a3-b244-487d-9880-3ccea45a96ff\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "2",
+                    "GUID": "e23a6336-e1e0-4552-9545-173e3ca57cd7",
+                    "ID": "2",
+                    "Name": "Аналитика",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "2",
+                    "OutlineNumber": "1.1.1",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-02-05T09:00:00",
+                    "Finish": "2024-02-09T18:00:00",
+                    "Duration": "PT40H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT40H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT40H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"e23a6336-e1e0-4552-9545-173e3ca57cd7\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "3",
+                    "GUID": "df8f4fcd-31dc-4efb-90b3-0be6daedce95",
+                    "ID": "3",
+                    "Name": "Разработка",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "3",
+                    "OutlineNumber": "1.1.2",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-02-12T09:00:00",
+                    "Finish": "2024-02-26T18:00:00",
+                    "Duration": "PT80H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT80H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT80H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "PredecessorLink": {
+                        "PredecessorUID": "2",
+                        "Type": "1",
+                        "CrossProject": "0",
+                        "LinkLag": "0",
+                        "LagFormat": "7"
+                    },
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"df8f4fcd-31dc-4efb-90b3-0be6daedce95\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "4",
+                    "GUID": "05bc9b77-167b-45b4-9ab4-a275c5deed2b",
+                    "ID": "4",
+                    "Name": "Тестирование",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "4",
+                    "OutlineNumber": "1.1.3",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-02-27T09:00:00",
+                    "Finish": "2024-03-04T18:00:00",
+                    "Duration": "PT40H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT40H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT40H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "PredecessorLink": {
+                        "PredecessorUID": "3",
+                        "Type": "1",
+                        "CrossProject": "0",
+                        "LinkLag": "0",
+                        "LagFormat": "7"
+                    },
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"05bc9b77-167b-45b4-9ab4-a275c5deed2b\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "5",
+                    "GUID": "637bc23a-28c7-40bd-8ef4-491aaa74035e",
+                    "ID": "5",
+                    "Name": "Проект 2",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "5",
+                    "OutlineNumber": "1.2",
+                    "OutlineLevel": "2",
+                    "Priority": "500",
+                    "Start": "2024-02-12T09:00:00",
+                    "Finish": "2024-04-09T18:00:00",
+                    "Duration": "PT320H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT320H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "1",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT320H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":0.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"637bc23a-28c7-40bd-8ef4-491aaa74035e\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "6",
+                    "GUID": "563a5caf-3bb9-41db-8fe0-e95b0e1242cc",
+                    "ID": "6",
+                    "Name": "Аналитика",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "6",
+                    "OutlineNumber": "1.2.1",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-02-12T09:00:00",
+                    "Finish": "2024-02-26T18:00:00",
+                    "Duration": "PT80H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT80H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT80H0M0S",
+                    "ConstraintType": "4",
+                    "CalendarUID": "-1",
+                    "ConstraintDate": "2024-02-12T09:00:00",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"563a5caf-3bb9-41db-8fe0-e95b0e1242cc\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "7",
+                    "GUID": "ebe096e2-4858-444d-847f-c7c4a5026c64",
+                    "ID": "7",
+                    "Name": "Разработка",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "7",
+                    "OutlineNumber": "1.2.2",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-02-27T09:00:00",
+                    "Finish": "2024-03-26T18:00:00",
+                    "Duration": "PT160H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT160H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT160H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "PredecessorLink": {
+                        "PredecessorUID": "6",
+                        "Type": "1",
+                        "CrossProject": "0",
+                        "LinkLag": "0",
+                        "LagFormat": "7"
+                    },
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"ebe096e2-4858-444d-847f-c7c4a5026c64\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "8",
+                    "GUID": "569ce820-e51c-477c-bd8c-3a34e3c4c512",
+                    "ID": "8",
+                    "Name": "Тестирование",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "8",
+                    "OutlineNumber": "1.2.3",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-03-27T09:00:00",
+                    "Finish": "2024-04-09T18:00:00",
+                    "Duration": "PT80H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT80H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT80H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "PredecessorLink": {
+                        "PredecessorUID": "7",
+                        "Type": "1",
+                        "CrossProject": "0",
+                        "LinkLag": "0",
+                        "LagFormat": "7"
+                    },
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"569ce820-e51c-477c-bd8c-3a34e3c4c512\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "9",
+                    "GUID": "fadefa72-4a18-44f5-a98b-33fe46afbf02",
+                    "ID": "9",
+                    "Name": "Проект 3",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "9",
+                    "OutlineNumber": "1.3",
+                    "OutlineLevel": "2",
+                    "Priority": "500",
+                    "Start": "2024-02-27T09:00:00",
+                    "Finish": "2024-05-27T18:00:00",
+                    "Duration": "PT480H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT480H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "1",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT480H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":0.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"fadefa72-4a18-44f5-a98b-33fe46afbf02\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "10",
+                    "GUID": "a248252c-b414-485e-bfad-67965fc7dae0",
+                    "ID": "10",
+                    "Name": "Аналитика",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "10",
+                    "OutlineNumber": "1.3.1",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-02-27T09:00:00",
+                    "Finish": "2024-03-19T18:00:00",
+                    "Duration": "PT120H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT120H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT120H0M0S",
+                    "ConstraintType": "4",
+                    "CalendarUID": "-1",
+                    "ConstraintDate": "2024-02-27T09:00:00",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"a248252c-b414-485e-bfad-67965fc7dae0\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "11",
+                    "GUID": "09d5b831-75e9-48d9-9a1b-b224ffd0454f",
+                    "ID": "11",
+                    "Name": "Разработка",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "11",
+                    "OutlineNumber": "1.3.2",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-03-20T09:00:00",
+                    "Finish": "2024-05-02T18:00:00",
+                    "Duration": "PT240H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT240H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT240H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "PredecessorLink": {
+                        "PredecessorUID": "10",
+                        "Type": "1",
+                        "CrossProject": "0",
+                        "LinkLag": "0",
+                        "LagFormat": "7"
+                    },
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"09d5b831-75e9-48d9-9a1b-b224ffd0454f\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                },
+                {
+                    "UID": "12",
+                    "GUID": "3f41d0b8-872c-4511-b8e0-2eb6b1b1a889",
+                    "ID": "12",
+                    "Name": "Тестирование",
+                    "Type": "0",
+                    "IsNull": "0",
+                    "WBS": "12",
+                    "OutlineNumber": "1.3.3",
+                    "OutlineLevel": "3",
+                    "Priority": "500",
+                    "Start": "2024-05-03T09:00:00",
+                    "Finish": "2024-05-27T18:00:00",
+                    "Duration": "PT120H0M0S",
+                    "DurationFormat": "7",
+                    "Work": "PT120H0M0S",
+                    "ResumeValid": "0",
+                    "EffortDriven": "0",
+                    "Recurring": "0",
+                    "OverAllocated": "0",
+                    "Estimated": "0",
+                    "Milestone": "0",
+                    "Summary": "0",
+                    "Critical": "0",
+                    "IsSubproject": "0",
+                    "IsSubprojectReadOnly": "0",
+                    "ExternalTask": "0",
+                    "FixedCostAccrual": "3",
+                    "PercentComplete": "0",
+                    "RemainingDuration": "PT120H0M0S",
+                    "ConstraintType": "0",
+                    "CalendarUID": "-1",
+                    "LevelAssignments": "0",
+                    "LevelingCanSplit": "0",
+                    "IgnoreResourceCalendar": "0",
+                    "HideBar": "0",
+                    "Rollup": "0",
+                    "EarnedValueMethod": "0",
+                    "PredecessorLink": {
+                        "PredecessorUID": "11",
+                        "Type": "1",
+                        "CrossProject": "0",
+                        "LinkLag": "0",
+                        "LagFormat": "7"
+                    },
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "188744004",
+                            "Value": "{\"assignmentsUnitsSum\":100.0}"
+                        },
+                        {
+                            "FieldID": "188744005",
+                            "Value": "{\"guid\":\"3f41d0b8-872c-4511-b8e0-2eb6b1b1a889\"}"
+                        },
+                        {
+                            "FieldID": "188744006",
+                            "Value": "{}"
+                        }
+                    ],
+                    "Active": "1",
+                    "Manual": "0"
+                }
+            ]
+        },
+        "Resources": {
+            "Resource": [
+                {
+                    "UID": "1",
+                    "ID": "1",
+                    "Name": "Руководитель проектного офиса",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "EmailAddress": "user7@undefinedSbtMail.ru",
+                    "MaxUnits": "1",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521069",
+                            "Value": "2024-02-05T00:00:00"
+                        },
+                        {
+                            "FieldID": "205521070",
+                            "Value": "2025-03-24T00:00:00"
+                        },
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345132079680126978"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                },
+                {
+                    "UID": "2",
+                    "ID": "2",
+                    "Name": "Разработчик №2 (4000руб/час)",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "MaxUnits": "0",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "Start": "2024-03-20T09:00:00",
+                    "Finish": "2024-05-02T18:00:00",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345158532383703054"
+                        },
+                        {
+                            "FieldID": "205521131",
+                            "Value": "Разработчик"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                },
+                {
+                    "UID": "3",
+                    "ID": "3",
+                    "Name": "Аналитик №1 (2000руб/час)",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "MaxUnits": "0",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "Start": "2024-02-05T09:00:00",
+                    "Finish": "2024-03-19T18:00:00",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345158532383703052"
+                        },
+                        {
+                            "FieldID": "205521131",
+                            "Value": "Аналитик"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                },
+                {
+                    "UID": "4",
+                    "ID": "4",
+                    "Name": "Разработчик №3 (3000руб/час)",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "MaxUnits": "0",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "Start": "2024-02-27T09:00:00",
+                    "Finish": "2024-03-26T18:00:00",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345158532383703050"
+                        },
+                        {
+                            "FieldID": "205521131",
+                            "Value": "Разработчик"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                },
+                {
+                    "UID": "5",
+                    "ID": "5",
+                    "Name": "Разработчик №1 (2000руб/час)",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "MaxUnits": "0",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "Start": "2024-02-12T09:00:00",
+                    "Finish": "2024-02-26T18:00:00",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345158532383703048"
+                        },
+                        {
+                            "FieldID": "205521131",
+                            "Value": "Разработчик"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                },
+                {
+                    "UID": "6",
+                    "ID": "6",
+                    "Name": "Тестировщик №2 (1500руб/час)",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "MaxUnits": "0",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "Start": "2024-02-27T09:00:00",
+                    "Finish": "2024-05-27T18:00:00",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345158532383703046"
+                        },
+                        {
+                            "FieldID": "205521131",
+                            "Value": "Тестировщик"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                },
+                {
+                    "UID": "7",
+                    "ID": "7",
+                    "Name": "Тестировщик №1 (1000руб/час)",
+                    "Type": "1",
+                    "IsNull": "0",
+                    "MaxUnits": "0",
+                    "PeakUnits": "1",
+                    "OverAllocated": "0",
+                    "CanLevel": "0",
+                    "StandardRateFormat": "2",
+                    "OvertimeRateFormat": "2",
+                    "IsGeneric": "0",
+                    "IsInactive": "0",
+                    "IsEnterprise": "0",
+                    "ExtendedAttribute": [
+                        {
+                            "FieldID": "205521130",
+                            "Value": "7345158532383703042"
+                        },
+                        {
+                            "FieldID": "205521131",
+                            "Value": "Тестировщик"
+                        }
+                    ],
+                    "IsBudget": "0",
+                    "AvailabilityPeriods": null
+                }
+            ]
+        },
+        "Assignments": {
+            "Assignment": [
+                {
+                    "UID": "1",
+                    "GUID": "d6f73a0f-4d88-45cf-9d14-e0878bd0f466",
+                    "TaskUID": "2",
+                    "ResourceUID": "3",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-02-09T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT40H0M0S",
+                    "Start": "2024-02-05T09:00:00",
+                    "Units": "1",
+                    "Work": "PT40H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "2",
+                    "GUID": "41aad6d9-5a33-4bca-83e0-13b6b1addb52",
+                    "TaskUID": "6",
+                    "ResourceUID": "3",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-02-26T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT80H0M0S",
+                    "Start": "2024-02-12T09:00:00",
+                    "Units": "1",
+                    "Work": "PT80H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "3",
+                    "GUID": "cb0029f7-b4f9-4f51-9468-ef330929ee0a",
+                    "TaskUID": "10",
+                    "ResourceUID": "3",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-03-19T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT120H0M0S",
+                    "Start": "2024-02-27T09:00:00",
+                    "Units": "1",
+                    "Work": "PT120H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "4",
+                    "GUID": "05452b8b-b17a-44b7-b4d0-1007cad58603",
+                    "TaskUID": "11",
+                    "ResourceUID": "2",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-05-02T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT240H0M0S",
+                    "Start": "2024-03-20T09:00:00",
+                    "Units": "1",
+                    "Work": "PT240H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "5",
+                    "GUID": "e2600ca9-d44e-4a59-90c3-5af8cd3be7a2",
+                    "TaskUID": "7",
+                    "ResourceUID": "4",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-03-26T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT160H0M0S",
+                    "Start": "2024-02-27T09:00:00",
+                    "Units": "1",
+                    "Work": "PT160H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "6",
+                    "GUID": "b5d10f7d-3a7a-4b31-9dac-861a7e07b83d",
+                    "TaskUID": "3",
+                    "ResourceUID": "5",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-02-26T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT80H0M0S",
+                    "Start": "2024-02-12T09:00:00",
+                    "Units": "1",
+                    "Work": "PT80H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "7",
+                    "GUID": "cfc9566b-801d-408e-951f-42240c8a0e35",
+                    "TaskUID": "8",
+                    "ResourceUID": "6",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-04-09T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT80H0M0S",
+                    "Start": "2024-03-27T09:00:00",
+                    "Units": "1",
+                    "Work": "PT80H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "8",
+                    "GUID": "74dc5080-c205-454c-bbc5-aa9381e7405c",
+                    "TaskUID": "4",
+                    "ResourceUID": "6",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-03-04T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT40H0M0S",
+                    "Start": "2024-02-27T09:00:00",
+                    "Units": "1",
+                    "Work": "PT40H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                },
+                {
+                    "UID": "9",
+                    "GUID": "67ccee62-af92-4a4b-9ee8-af8b53c40b8a",
+                    "TaskUID": "12",
+                    "ResourceUID": "6",
+                    "PercentWorkComplete": "0",
+                    "Finish": "2024-05-27T18:00:00",
+                    "HasFixedRateUnits": "1",
+                    "FixedMaterial": "0",
+                    "LevelingDelayFormat": "7",
+                    "RemainingWork": "PT120H0M0S",
+                    "Start": "2024-05-03T09:00:00",
+                    "Units": "1",
+                    "Work": "PT120H0M0S",
+                    "ExtendedAttribute": {
+                        "FieldID": "255852770",
+                        "Value": "{}"
+                    }
+                }
+            ]
+        }
+    }
+}
