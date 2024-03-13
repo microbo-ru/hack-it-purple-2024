@@ -13,6 +13,7 @@ It Purple Hack
  - [X] Multi skills per resources, e.g. when SA can work on analysis & development (EXTRA FEATURE)
  - [X] Fixed assignments, e.g. Only specific worker should perform a specific task (EXTRA FEATURE)
  - [X] Weighted optimization -> specify weights on cost, duration, resources (EXTRA FEATURE)
+ - [X] Configure different profile to run: either draft solution or fine-tuned (EXTRA FEATURE)
 ## How to run
 
 ### Create env using requirements.txt & set workspace
