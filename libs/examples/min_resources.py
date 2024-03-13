@@ -4,11 +4,11 @@ from libs.model.task_scheduling import MinResourcesModel
 # (name, effort_hrs, skill_required, depends_on)
 tasks = [
     ('Requirements Analysis', 6, 'analysis', []),
-    ('API design', 8, 'dev', []),
-    ('API Programming', 24, 'dev', []),
-    ('DB design', 8, 'dev', []),
-    ('unit-tests', 8, 'dev', []),
-    ('API Testing', 5, 'qa', [])
+    ('API design', 8, 'dev', [0]),
+    ('DB design', 8, 'dev', [0]),
+    ('API Programming', 24, 'dev', [1, 2]),
+    ('unit-tests', 8, 'dev', [3]),
+    ('API Testing', 5, 'qa', [3])
 ]
 
 # (name, cost_hr, skills)

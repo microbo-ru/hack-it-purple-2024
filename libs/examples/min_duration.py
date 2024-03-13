@@ -1,7 +1,7 @@
 from libs.examples.solution_printer import SolutionPrinter
 from libs.model.task_scheduling import MinDurationModel
 
-# (name, effort_hrs, skill_required, depends_on_tasks)
+# (name, effort_hrs, skill_required, depends_on)
 tasks = [
     ('Requirements Analysis', 6, 'analysis', []),
     ('API design', 8, 'dev', [0]),
