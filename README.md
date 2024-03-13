@@ -14,6 +14,9 @@ It Purple Hack
  - [X] Fixed assignments, e.g. Only specific worker should perform a specific task (EXTRA FEATURE)
  - [X] Weighted optimization -> specify weights on cost, duration, resources (EXTRA FEATURE)
  - [X] Configure different profile to run: either draft solution or fine-tuned (EXTRA FEATURE)
+ - [X] Hardware constraints, e.g. max 4 cpu to use (EXTRA FEATURE)
+ - [X] nice cli & outputs :)
+
 ## How to run
 
 ### Create env using requirements.txt & set workspace
