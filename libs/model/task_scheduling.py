@@ -164,6 +164,7 @@ class TaskSchedulingBase(ABC):
         model.minimize(self.get_objective(model))
 
         solver = cp_model.CpSolver()
+        solver.parameters.max_time_in_seconds = 10 * 60
         status = solver.Solve(model)
 
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
