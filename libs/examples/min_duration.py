@@ -1,8 +1,6 @@
 from libs.examples.solution_printer import SolutionPrinter
 from libs.model.task_scheduling import MinDurationModel
 
-NUM_DAYS = 14
-
 # (name, effort_hrs, skill_required, depends_on_tasks)
 tasks = [
     ('Requirements Analysis', 6, 'analysis', []),
@@ -39,7 +37,7 @@ solution = model.solve()
 # }
 
 
-printer = SolutionPrinter(num_days=NUM_DAYS)
+printer = SolutionPrinter()
 
 print('\nTask assignments:')
 printer.print_task_assignments(tasks, resources, solution['task_assignments'])

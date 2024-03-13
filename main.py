@@ -73,8 +73,7 @@ def process_json(args):
 
     print(solution)
 
-    NUM_DAYS = 90
-    printer = SolutionPrinter(num_days=NUM_DAYS)
+    printer = SolutionPrinter()
     print('\nTask assignments:')
     printer.print_task_assignments(tasks, resources, solution['task_assignments'])
     print('\n=============================\n'
