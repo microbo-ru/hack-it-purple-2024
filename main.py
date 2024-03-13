@@ -32,9 +32,14 @@ def get_effort(effort_str):
 def get_role(resource):
     return resource.Name[:resource.Name.index(' ')]
 
+def clear_task_name(task_name):
+    if ' ' in task_name:
+        return task_name[:task_name.index(' ')]
+    else:
+        return task_name
+
 def process_json(args):
     data = json.load(open(args.input_file), object_hook=lambda d: SimpleNamespace(**d))
-    # data = json.load(open(args.input_file))
 
     tasks = []
     for t in data.Project.Tasks.Task:
@@ -50,13 +55,13 @@ def process_json(args):
     for t in tasks:
         (uid, name, effort_str, deps) = t
         deps_idx = [find_uid_index(deps[0] , tasks)] if len(deps)> 0 else []
-        algo_tasks.append((uid, get_effort(effort_str), name, deps_idx))
+        algo_tasks.append((uid, get_effort(effort_str), clear_task_name(name), deps_idx))
     pprint(algo_tasks)
 
     skill_mapping = {'Тестировщик': 'Тестирование', 
                      'Разработчик': 'Разработка',
                      'Аналитик': 'Аналитика'}
-    # # pprint(skill_mapping)
+    # pprint(skill_mapping)
 
     resources = []
     for r in data.Project.Resources.Resource:
@@ -101,8 +106,11 @@ def convert_xml_to_json(args):
     with open(args.output_file, 'w', encoding='utf-8') as f:
         json.dump(doc, f, ensure_ascii=False, indent=4)
 
-# python main.py -c -i "./inputs/new/исходные данные.xml" -o "./inputs/new/исходные данные.json"
+# python main.py -i "./inputs/new/исходные данные.xml" -o "./inputs/new/исходные данные.json" -c 1
 # python main.py -i "./inputs/new/исходные данные.json" -o out.json
+
+# python main.py -i "./inputs/v2/тестовое задание.xml" -o "./inputs/v2/тестовое данные.json" -c 1
+# python main.py -i "./inputs/v2/тестовое данные.json" -o out2.json
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Sber Tech Scheduler')
     parser.add_argument('-i', '--input-file', type=str,
