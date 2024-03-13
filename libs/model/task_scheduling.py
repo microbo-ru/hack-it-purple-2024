@@ -4,6 +4,9 @@ from collections import defaultdict
 from ortools.sat.python import cp_model
 from ortools.sat.python.cp_model import IntVar
 
+from libs.model.objective_solution_printer_with_limit import ObjectiveSolutionPrinterWithLimit
+from libs.model.solver_params import SolverParams
+
 
 def max_duration(tasks):
     # https://ru.stackoverflow.com/questions/1331510/%D0%9E%D0%B1%D1%8A%D1%8F%D1%81%D0%BD%D0%B8%D1%82%D0%B5-%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-%D1%8D%D1%82%D0%BE-%D0%BE%D0%BA%D1%80%D1%83%D0%B3%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D1%87%D0%B8%D1%81%D0%BB%D0%B0-%D0%B2-%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D1%83%D1%8E-%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%83
@@ -18,10 +21,14 @@ def max_duration(tasks):
 
 
 class TaskSchedulingBase(ABC):
+    __solver_params: SolverParams
+
     def __init__(self,
                  resources: list,                   # (name, cost_hr, skills)
                  tasks: list,                       # (name, effort_hrs, skill_required, depends_on_tasks)
-                 fixed_assignments: list = []):     # (task_id, resource_id)
+                 fixed_assignments: list = [],       # (task_id, resource_id)
+                 solver_params: SolverParams = SolverParams.default()
+                 ):
 
         # Variable space
         self.task_intervals = None      # task_intervals[t] -> IntervalVar
@@ -37,8 +44,40 @@ class TaskSchedulingBase(ABC):
 
         self.num_days = max_duration(tasks)
 
+        self.__solver_params = solver_params
+
+    def get_hints(self, solver):
+        hints = {
+            'task_intervals': {},
+            'task_workers': {},
+            'task_day_workers': {}
+        }
+
+        for t in range(self.num_tasks):
+            start = solver.Value(self.task_intervals[t].StartExpr())
+            end = solver.Value(self.task_intervals[t].EndExpr())
+            duration = solver.Value(self.task_intervals[t].SizeExpr())
+            hints['task_intervals'][t] = (start, end, duration)
+
+        for t in range(self.num_tasks):
+            for w in range(self.num_workers):
+                works = solver.Value(self.task_workers[t, w])
+                hints['task_workers'][t, w] = works
+
+        for w in range(self.num_workers):
+            for d in range(self.num_days):
+                for t in range(self.num_tasks):
+                    works = solver.boolean_value(self.task_day_workers[t, d, w])
+                    hints['task_day_workers'][t, d, w] = works
+
+        return hints
+
     @abstractmethod
     def get_objective(self, model):
+        pass
+
+    @abstractmethod
+    def preprocess_model(self, model):
         pass
 
     def build_model(self):
@@ -132,9 +171,12 @@ class TaskSchedulingBase(ABC):
 
     def to_results(self, solver):
         solution = {
+            'objective_value': solver.objective_value,
+            '__hints': {},
             'task_assignments': {},
             'workers_assignments': {}
         }
+
         for t in range(self.num_tasks):
             start = solver.Value(self.task_intervals[t].StartExpr())
             end = solver.Value(self.task_intervals[t].EndExpr())
@@ -148,6 +190,7 @@ class TaskSchedulingBase(ABC):
                     break
 
             solution['task_assignments'][t] = (start, end, assigned_worker)
+
         for w in range(self.num_workers):
             worker_solution = []
             for d in range(self.num_days):
@@ -156,16 +199,39 @@ class TaskSchedulingBase(ABC):
                         worker_solution.append((d, t))
 
             solution['workers_assignments'][w] = worker_solution
+
+        solution['__hints'] = self.get_hints(solver)
+
         return solution
+
+    def setup_solver_params(self, solver):
+        if self.__solver_params.max_iteration_search_time:
+            solver.parameters.max_time_in_seconds = self.__solver_params.max_iteration_search_time
+        if self.__solver_params.num_search_workers:
+            solver.num_search_workers = self.__solver_params.num_search_workers
+        if self.__solver_params.do_logging:
+            solver.parameters.log_search_progress = self.__solver_params.do_logging
+
+    def get_printer(self):
+        if self.__solver_params.solution_limit:
+            solution_printer = ObjectiveSolutionPrinterWithLimit(self.__solver_params.solution_limit)
+        else:
+            solution_printer = cp_model.ObjectiveSolutionPrinter()
+
+        return solution_printer
 
     def solve(self):
         model = self.build_model()
-
+        self.preprocess_model(model)
         model.minimize(self.get_objective(model))
 
         solver = cp_model.CpSolver()
-        solver.parameters.max_time_in_seconds = 10 * 60
-        status = solver.Solve(model)
+
+        self.setup_solver_params(solver)
+        solution_printer = self.get_printer()
+
+        print("Solving started...")
+        status = solver.Solve(model, solution_printer)
 
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
             print(f'Solution found. Total objective func = {solver.objective_value}\n')
@@ -176,6 +242,9 @@ class TaskSchedulingBase(ABC):
 
 
 class MinCostModel(TaskSchedulingBase):
+    def preprocess_model(self, model):
+        pass
+
     def get_objective(self, model):
         # Objective - Min cost
         obj_task_costs = {}
@@ -185,7 +254,7 @@ class MinCostModel(TaskSchedulingBase):
             assigned_workers_cost = []
             for w in range(self.num_workers):
                 (_, cost_hr, _) = self.resources[w]
-                assigned_workers_cost.append(self.task_workers[t, w] * effort_hrs * cost_hr)
+                assigned_workers_cost.append(self.task_workers[t, w] * int(effort_hrs) * int(cost_hr))
 
             obj_task_costs[t] = sum(assigned_workers_cost)
 
@@ -193,6 +262,9 @@ class MinCostModel(TaskSchedulingBase):
 
 
 class MinResourcesModel(TaskSchedulingBase):
+    def preprocess_model(self, model):
+        pass
+
     def get_objective(self, model):
         # Objective - Min resources
         obj_task_workers = {}
@@ -207,6 +279,9 @@ class MinResourcesModel(TaskSchedulingBase):
 
 
 class MinDurationModel(TaskSchedulingBase):
+    def preprocess_model(self, model):
+        pass
+
     def get_objective(self, model):
         # Objective - Min Duration
 
