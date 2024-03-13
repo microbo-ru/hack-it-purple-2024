@@ -2,8 +2,8 @@
 class SolutionPrinter:
 
     def print_task_assignments(self, tasks, resources, solution_task_assignments, compact=False):
-        __free = u' □ '
-        __busy = u' ■ '
+        __free = u' □'
+        __busy = u' ■'
 
         def get_num_days(solution_task_assignments):
             num_days = 0
@@ -31,34 +31,34 @@ class SolutionPrinter:
                     day_icons[d] = __busy
 
                 day_print = ''.join(day_icons)
-                task_print = '{:<25}'.format(task_name)
+                task_print = '{:<5}'.format(task_name)
 
                 print(f'{task_print} : {day_print} : {worker_name}')
 
 
     def print_workers_tasks(self, tasks, resources, solution_workers_assignments, compact=False):
-        __free = u' □ '
+        __free = u' □'
 
         def get_icon(index):
             __icon = [
-                u' ♥ ',
-                u' ♦ ',
-                u' ♣ ',
-                u' ♠ ',
-                u' ▲ ',
-                u' ▼ ',
-                u' © ',
-                u' * ',
-                u' 0 ',
-                u' 1 ',
-                u' 2 ',
-                u' 3 ',
-                u' 4 ',
-                u' 5 ',
-                u' 6 ',
-                u' 7 ',
-                u' 8 ',
-                u' 9 ',
+                u' ♥',
+                u' ♦',
+                u' ♣',
+                u' ♠',
+                u' ▲',
+                u' ▼',
+                u' ©',
+                u' *',
+                u' 0',
+                u' 1',
+                u' 2',
+                u' 3',
+                u' 4',
+                u' 5',
+                u' 6',
+                u' 7',
+                u' 8',
+                u' 9',
             ]
 
             return __icon[index % len(__icon)]
@@ -91,7 +91,7 @@ class SolutionPrinter:
                     day_icons[d] = get_icon(t)
 
                 day_print = ''.join(day_icons)
-                worker_print = '{:<25}'.format(worker_name)
+                worker_print = '{:<5}'.format(worker_name)
 
                 print(f'{worker_print} : {day_print}')
 
