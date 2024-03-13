@@ -4,7 +4,7 @@ It Purple Hack
 
 ## How to run
 
-### Set workspace
+### Create env using requirements.txt & set workspace
 ```shell
 export PYTHONPATH=<hack-it-purple-2024 directory>
 ```
