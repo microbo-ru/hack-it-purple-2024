@@ -45,7 +45,7 @@ class SolutionBuilder:
 
         leaves_list = []
         for s in node_list:
-            if not any([s in r for r in node_list if s != r]):
+            if not any([f'{s}.' in r for r in node_list if s != r]):
                 leaves_list.append(s)
 
         parents_list = [t for t in node_list if t not in leaves_list]
@@ -68,7 +68,7 @@ class SolutionBuilder:
             try:
                 task = next(t for t in data.Project.Tasks.Task if t.OutlineNumber == i)
                 q = task.OutlineNumber
-                all_sub_tasks = list(filter(lambda t: t[0].startswith(q), tasks_with_dates))
+                all_sub_tasks = list(filter(lambda t: t[0].startswith(f'{q}.'), tasks_with_dates))
 
                 min_start = min(all_sub_tasks, key=lambda t: t[1])[1]
                 max_start = max(all_sub_tasks, key=lambda t: t[2])[2]
