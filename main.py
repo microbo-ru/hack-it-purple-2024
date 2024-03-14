@@ -53,7 +53,10 @@ def process_json(args):
         if not hasattr(t, 'PredecessorLink'):
             tasks.append((t.UID, t.Name, t.Work, []))
         else:
-            tasks.append((t.UID, t.Name, t.Work, [t.PredecessorLink.PredecessorUID]))
+            if not hasattr(t, 'Work'):
+                tasks.append((t.UID, t.Name, "No0H", []))
+            else:
+                tasks.append((t.UID, t.Name, t.Work, [t.PredecessorLink.PredecessorUID]))
     # pprint(tasks)
 
     algo_tasks = []
@@ -65,7 +68,10 @@ def process_json(args):
 
     skill_mapping = {'Тестировщик': 'Тестирование', 
                      'Разработчик': 'Разработка',
-                     'Аналитик': 'Аналитика'}
+                     'Аналитик': 'Аналитика',
+                     'Разработчик': 'Общая', #todo
+                     'Тестировщик': 'Задача', #todo
+                     }
     # pprint(skill_mapping)
 
     resources = []
@@ -109,6 +115,7 @@ def convert_xml_to_json(args):
 # export PYTHONPATH=/home/vladimir/Work/microbo/hack-it-purple-2024
 # python main.py -i "./inputs/v2/тестовое задание.xml" -o ./results/result_2.xml -m duration
 # python main.py -i "./inputs/new/исходные данные.xml" -o ./results/result_1.xml -m duration
+# python main.py -i "./inputs/final/проверочное задание.xml" -o ./results/final_duration.xml -m duration
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Sber Tech Task Scheduler')
     parser.add_argument('-i', '--input-file', type=str,
