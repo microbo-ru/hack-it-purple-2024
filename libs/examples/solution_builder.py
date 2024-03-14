@@ -10,20 +10,21 @@ class SolutionBuilder:
 
         for t in range(len(tasks)):
             (start, finish, w) = solution_task_assignments[t]
-            (task_name, *_) = tasks[t]
+            (task_name, _, task_effort, __) = tasks[t]
             (worker_name, *_) = resources[w]
 
             try:
                 assignment = next(t for t in data.Project.Assignments.Assignment if t.TaskUID == task_name)
             except:
+                print(tasks[t])
                 assignment = data.Project.Assignments.Assignment[0] #todo first as template
                 assignment = copy.copy(assignment)
                 data.Project.Assignments.Assignment.append(assignment)
                 assignment.UID = str(len(data.Project.Assignments.Assignment))
                 assignment.TaskUID = task_name
                 assignment.GUID = str(uuid.uuid4())
-                assignment.RemainingWork = 'TBD'
-                assignment.Work = 'TBD'
+                assignment.RemainingWork = task_effort
+                assignment.Work = task_effort
 
             assignment.ResourceUID = worker_name
             new_start = project_start_date + timedelta(days = start)
