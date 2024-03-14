@@ -16,7 +16,6 @@ class SolutionBuilder:
             try:
                 assignment = next(t for t in data.Project.Assignments.Assignment if t.TaskUID == task_name)
             except:
-                print(tasks[t])
                 assignment = data.Project.Assignments.Assignment[0] #todo first as template
                 assignment = copy.copy(assignment)
                 data.Project.Assignments.Assignment.append(assignment)
