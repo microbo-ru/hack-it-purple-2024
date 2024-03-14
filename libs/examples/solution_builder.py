@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from pprint import pprint
-import types, copy
+import copy
+import uuid
 
 class SolutionBuilder:
     def reassign(self, data, tasks, resources, solution_task_assignments):
@@ -18,7 +19,9 @@ class SolutionBuilder:
                 assignment = data.Project.Assignments.Assignment[0] #todo first as template
                 assignment = copy.copy(assignment)
                 data.Project.Assignments.Assignment.append(assignment)
+                assignment.UID = str(len(data.Project.Assignments.Assignment))
                 assignment.TaskUID = task_name
+                assignment.GUID = str(uuid.uuid4())
                 assignment.RemainingWork = 'TBD'
                 assignment.Work = 'TBD'
 
