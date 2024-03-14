@@ -107,6 +107,6 @@ with open(OUTPUT_JSON, 'w', encoding='utf-8') as f:
     json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
 
 with open(xml_file_out, 'w', encoding='utf-8') as f:
-    xml_content = xmltodict.unparse(json.load(open(OUTPUT_JSON)), pretty=True)
+    xml_content = xmltodict.unparse(json.load(open(OUTPUT_JSON, encoding='utf-8')), pretty=True)
     f.write(xml_content)
 

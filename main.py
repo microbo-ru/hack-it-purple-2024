@@ -110,7 +110,7 @@ def process_json(args):
         json.dump(data, f, default=get_obj_dict, ensure_ascii=False, indent=4)
 
     with open(args.output_file, 'w', encoding='utf-8') as f:
-        xml_content = xmltodict.unparse(json.load(open(OUTPUT_JSON)), pretty=True)
+        xml_content = xmltodict.unparse(json.load(open(OUTPUT_JSON, encoding='utf-8')), pretty=True)
         f.write(xml_content)
 
 def convert_xml_to_json(args):
