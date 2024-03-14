@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from pprint import pprint
+import types, copy
 
 class SolutionBuilder:
     def reassign(self, data, tasks, resources, solution_task_assignments):
@@ -15,7 +16,11 @@ class SolutionBuilder:
                 assignment = next(t for t in data.Project.Assignments.Assignment if t.TaskUID == task_name)
             except:
                 assignment = data.Project.Assignments.Assignment[0] #todo first as template
+                assignment = copy.copy(assignment)
+                data.Project.Assignments.Assignment.append(assignment)
                 assignment.TaskUID = task_name
+                assignment.RemainingWork = 'TBD'
+                assignment.Work = 'TBD'
 
             assignment.ResourceUID = worker_name
             new_start = project_start_date + timedelta(days = start)
