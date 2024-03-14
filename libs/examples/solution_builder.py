@@ -11,19 +11,22 @@ class SolutionBuilder:
             (task_name, *_) = tasks[t]
             (worker_name, *_) = resources[w]
 
-            assignment = next(t for t in data.Project.Assignments.Assignment if t.TaskUID == task_name)
-            assignment.ResourceUID = worker_name
-            new_start = project_start_date + timedelta(days = start)
-            new_finish = project_start_date + timedelta(days = finish)
-            assignment.Start = new_start.strftime(date_format)
-            assignment.Finish = new_finish.strftime(date_format)
+            try:
+                assignment = next(t for t in data.Project.Assignments.Assignment if t.TaskUID == task_name)
+                assignment.ResourceUID = worker_name
+                new_start = project_start_date + timedelta(days = start)
+                new_finish = project_start_date + timedelta(days = finish)
+                assignment.Start = new_start.strftime(date_format)
+                assignment.Finish = new_finish.strftime(date_format)
 
 
-            task = next(t for t in data.Project.Tasks.Task if t.UID == task_name)
-            new_start = project_start_date + timedelta(days = start)
-            new_finish = project_start_date + timedelta(days = finish)
-            task.Start = new_start.strftime(date_format)
-            task.Finish = new_finish.strftime(date_format)
+                task = next(t for t in data.Project.Tasks.Task if t.UID == task_name)
+                new_start = project_start_date + timedelta(days = start)
+                new_finish = project_start_date + timedelta(days = finish)
+                task.Start = new_start.strftime(date_format)
+                task.Finish = new_finish.strftime(date_format)
+            except:
+                pass
 
     def update_parents_dates(self, data):
         node_list = []
@@ -41,21 +44,27 @@ class SolutionBuilder:
         date_format = "%Y-%m-%dT%H:%M:%S"
 
         for i in leaves_list:
-            task = next(t for t in data.Project.Tasks.Task if t.OutlineNumber == i)
-            tasks_with_dates.append((
-                task.OutlineNumber, 
-                datetime.strptime(task.Start, date_format),
-                datetime.strptime(task.Finish, date_format))
-            )
+            try:
+                task = next(t for t in data.Project.Tasks.Task if t.OutlineNumber == i)
+                tasks_with_dates.append((
+                    task.OutlineNumber, 
+                    datetime.strptime(task.Start, date_format),
+                    datetime.strptime(task.Finish, date_format))
+                )
+            except:
+                pass
 
         for i in parents_list:
-            task = next(t for t in data.Project.Tasks.Task if t.OutlineNumber == i)
-            q = task.OutlineNumber
-            all_sub_tasks = list(filter(lambda t: t[0].startswith(q), tasks_with_dates))
+            try:
+                task = next(t for t in data.Project.Tasks.Task if t.OutlineNumber == i)
+                q = task.OutlineNumber
+                all_sub_tasks = list(filter(lambda t: t[0].startswith(q), tasks_with_dates))
 
-            min_start = min(all_sub_tasks, key=lambda t: t[1])[1]
-            max_start = max(all_sub_tasks, key=lambda t: t[2])[2]
+                min_start = min(all_sub_tasks, key=lambda t: t[1])[1]
+                max_start = max(all_sub_tasks, key=lambda t: t[2])[2]
 
-            task.Start = min_start.strftime(date_format)
-            task.Finish = max_start.strftime(date_format)
+                task.Start = min_start.strftime(date_format)
+                task.Finish = max_start.strftime(date_format)
+            except:
+                pass
 
