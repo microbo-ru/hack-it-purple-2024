@@ -14,6 +14,14 @@ INPUT_JSON = './tmp/input.json'
 OUTPUT_JSON = './tmp/out.json'
 RES_DIR = './results'
 
+def get_task_skill(t_skill):
+    skills = ['Тестирование', 'Разработка', 'Аналитика']
+
+    if t_skill not in skills:
+        return ''
+    else:
+        return t_skill
+
 def get_obj_dict(obj):
     return obj.__dict__
 
@@ -44,11 +52,11 @@ def clear_task_name(task_name):
         return task_name
 
 def process_json(args):
-    data = json.load(open(INPUT_JSON), object_hook=lambda d: SimpleNamespace(**d))
+    data = json.load(open(INPUT_JSON, encoding="utf-8"), object_hook=lambda d: SimpleNamespace(**d))
 
     tasks = []
     for t in data.Project.Tasks.Task:
-        if t.Summary == "1":
+        if t.Summary == "1" or "Веха" in t.Name:
             continue
         if not hasattr(t, 'PredecessorLink'):
             tasks.append((t.UID, t.Name, t.Work, []))
@@ -63,7 +71,7 @@ def process_json(args):
     for t in tasks:
         (uid, name, effort_str, deps) = t
         deps_idx = [find_uid_index(deps[0] , tasks)] if len(deps)> 0 else []
-        algo_tasks.append((uid, get_effort(effort_str), clear_task_name(name), deps_idx))
+        algo_tasks.append((uid, get_effort(effort_str), get_task_skill(clear_task_name(name)), deps_idx))
     pprint(algo_tasks)
 
     skill_mapping = {'Тестировщик': 'Тестирование', 
@@ -106,7 +114,7 @@ def process_json(args):
         f.write(xml_content)
 
 def convert_xml_to_json(args):
-    with open(args.input_file) as fd:
+    with open(args.input_file, encoding="utf-8") as fd:
         doc = xmltodict.parse(fd.read())
 
     with open(INPUT_JSON, 'w', encoding='utf-8') as f:
