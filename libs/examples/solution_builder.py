@@ -13,20 +13,22 @@ class SolutionBuilder:
 
             try:
                 assignment = next(t for t in data.Project.Assignments.Assignment if t.TaskUID == task_name)
-                assignment.ResourceUID = worker_name
-                new_start = project_start_date + timedelta(days = start)
-                new_finish = project_start_date + timedelta(days = finish)
-                assignment.Start = new_start.strftime(date_format)
-                assignment.Finish = new_finish.strftime(date_format)
-
-
-                task = next(t for t in data.Project.Tasks.Task if t.UID == task_name)
-                new_start = project_start_date + timedelta(days = start)
-                new_finish = project_start_date + timedelta(days = finish)
-                task.Start = new_start.strftime(date_format)
-                task.Finish = new_finish.strftime(date_format)
             except:
-                pass
+                assignment = data.Project.Assignments.Assignment[0] #todo first as template
+                assignment.TaskUID = task_name
+
+            assignment.ResourceUID = worker_name
+            new_start = project_start_date + timedelta(days = start)
+            new_finish = project_start_date + timedelta(days = finish)
+            assignment.Start = new_start.strftime(date_format)
+            assignment.Finish = new_finish.strftime(date_format)
+
+            task = next(t for t in data.Project.Tasks.Task if t.UID == task_name)
+            new_start = project_start_date + timedelta(days = start)
+            new_finish = project_start_date + timedelta(days = finish)
+            task.Start = new_start.strftime(date_format)
+            task.Finish = new_finish.strftime(date_format)
+            
 
     def update_parents_dates(self, data):
         node_list = []
